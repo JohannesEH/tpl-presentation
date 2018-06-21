@@ -29,6 +29,7 @@ namespace tpl_presentation
                     p.Ingredients.Add("Sauce");
                     p.Ingredients.Add("Pepperoni");
                     p.Ingredients.Add("Cheese");
+                    WriteLine("Added ingredients");
                     return p;
                 },
                 new ExecutionDataflowBlockOptions { BoundedCapacity = 2, MaxDegreeOfParallelism = 2 }
@@ -66,6 +67,7 @@ namespace tpl_presentation
             for (int i = 1; i <= 100; i++)
             {
                 await ordersBuffer.SendAsync(i);
+                WriteLine("Added order");
             }
             #endregion
 
